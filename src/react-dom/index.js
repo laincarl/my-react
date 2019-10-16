@@ -1,6 +1,8 @@
 import { VTEXT, VELEMENT, VSTATELESS, VCOMPONENT } from '../react/constant'
-
+import { schedule } from '../react/Component'
 function render(vDom, dom) {
+  console.log('dom render')
+  schedule.doUpdate();
   const node = initVDOM(vDom);
   console.log(vDom, node);
   dom.appendChild(node);
@@ -13,7 +15,7 @@ function render(vDom, dom) {
  * @returns realDom 最终返回真实dom,递归
  */
 export function initVDOM(vNode) {
-  const { vType } = vNode; 
+  const { vType } = vNode;
   if (!vType) {
     // 文本节点
     return document.createTextNode(vNode);
@@ -46,7 +48,7 @@ function initVNode(vNode) {
   const { type, props } = vNode;
   const { children, style, className, ...restProps } = props;
   const node = document.createElement(type);
-  console.log(restProps)
+  // console.log(restProps)
   Object.keys(restProps).forEach(attr => {
     const value = restProps[attr];
     if (attr.startsWith('on')) {

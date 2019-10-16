@@ -1,6 +1,7 @@
-import React, { Component } from './react';
-import ReactDOM from './react-dom';
-
+// import React, { Component } from './react';
+// import ReactDOM from './react-dom';
+import React, { Component } from './kkreact/index';
+import ReactDOM from './kkreact/ReactDOM';
 class ClassComponent extends Component {
   state = {
     text: 'ss'
@@ -10,8 +11,18 @@ class ClassComponent extends Component {
     this.setState({
       text: Math.random()
     })
+    this.setState({
+      text: Math.random()
+    })
+    this.setState({
+      text: Math.random()
+    })
+    this.setState({
+      text: Math.random()
+    })
   }
   render() {
+    console.log('render')
     const { name } = this.props;
     const { text } = this.state;
     return <div>
